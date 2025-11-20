@@ -73,6 +73,7 @@ func MustGenerate(alphabet string, size int) string {
 func New(l ...int) (string, error) {
 	var size int
 	switch {
+
 	case len(l) == 0:
 		size = defaultSize
 	case len(l) == 1:
