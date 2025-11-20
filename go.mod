@@ -1,0 +1,44 @@
+module git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base
+
+go 1.16
+
+require (
+	github.com/VividCortex/gohistogram v1.0.0
+	github.com/afex/hystrix-go v0.0.0-20180502004556-fa1af6a1f4f5
+	github.com/aws/aws-lambda-go v1.23.0
+	github.com/aws/aws-sdk-go v1.38.28
+	github.com/casbin/casbin/v2 v2.28.4
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
+	github.com/go-asn1-ber/asn1-ber v1.5.3
+	github.com/go-logfmt/logfmt v0.5.0
+	github.com/go-stack/stack v1.8.0
+	github.com/golang/protobuf v1.5.2
+	github.com/gomodule/redigo v1.8.4
+	github.com/google/uuid v1.2.0
+	github.com/gorilla/mux v1.8.0
+	github.com/hashicorp/consul/api v1.8.1
+	github.com/hudl/fargo v1.3.0
+	github.com/influxdata/influxdb1-client v0.0.0-20200827194710-b269163b24ab
+	github.com/jinzhu/gorm v1.9.16
+	github.com/joho/godotenv v1.3.0
+	github.com/korylprince/go-ad-auth/v3 v3.1.1
+	github.com/nats-io/nats-server/v2 v2.2.2
+	github.com/nats-io/nats.go v1.10.1-0.20210419223411-20527524c393
+	github.com/opentracing/opentracing-go v1.2.0
+	github.com/openzipkin/zipkin-go v0.2.5
+	github.com/performancecopilot/speed v3.0.0+incompatible
+	github.com/prometheus/client_golang v1.10.0
+	github.com/samuel/go-zookeeper v0.0.0-20201211165307-7117e9ea2414
+	github.com/sirupsen/logrus v1.8.1
+	github.com/sony/gobreaker v0.4.1
+	github.com/streadway/amqp v1.0.0
+	github.com/streadway/handy v0.0.0-20200128134331-0f66f006fb2e
+	github.com/stretchr/testify v1.6.1
+	go.opencensus.io v0.23.0
+	go.uber.org/zap v1.16.0
+	golang.org/x/crypto v0.0.0-20210421170649-83a5a9bb288b
+	golang.org/x/text v0.3.6
+	golang.org/x/time v0.0.0-20210220033141-f8bda1e9f3ba
+	google.golang.org/grpc v1.37.0
+	google.golang.org/protobuf v1.26.0
+)
