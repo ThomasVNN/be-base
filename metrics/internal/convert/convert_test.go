@@ -3,8 +3,8 @@ package convert
 import (
 	"testing"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics/generic"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics/teststat"
+	"github.com/ThomasVNN/be-base/metrics/generic"
+	"github.com/ThomasVNN/be-base/metrics/teststat"
 )
 
 func TestCounterHistogramConversion(t *testing.T) {

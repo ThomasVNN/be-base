@@ -9,8 +9,8 @@ import (
 	"github.com/openzipkin/zipkin-go/model"
 	"github.com/openzipkin/zipkin-go/propagation/b3"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
-	kithttp "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/http"
+	"github.com/ThomasVNN/be-base/log"
+	kithttp "github.com/ThomasVNN/be-base/transport/http"
 )
 
 // HTTPClientTrace enables native Zipkin tracing of a Go kit HTTP transport

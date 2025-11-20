@@ -12,7 +12,7 @@ import (
 	"strings"
 	"testing"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics/teststat"
+	"github.com/ThomasVNN/be-base/metrics/teststat"
 	stdprometheus "github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )

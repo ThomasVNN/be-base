@@ -5,8 +5,8 @@ import (
 	"os"
 	"testing"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
-	levels "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log/deprecated_levels"
+	"github.com/ThomasVNN/be-base/log"
+	levels "github.com/ThomasVNN/be-base/log/deprecated_levels"
 )
 
 func TestDefaultLevels(t *testing.T) {

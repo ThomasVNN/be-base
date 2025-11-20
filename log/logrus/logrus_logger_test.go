@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	log "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log/logrus"
+	log "github.com/ThomasVNN/be-base/log/logrus"
 	"github.com/sirupsen/logrus"
 )
 

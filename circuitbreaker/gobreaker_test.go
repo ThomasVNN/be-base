@@ -5,7 +5,7 @@ import (
 
 	"github.com/sony/gobreaker"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/circuitbreaker"
+	"github.com/ThomasVNN/be-base/circuitbreaker"
 )
 
 func TestGobreaker(t *testing.T) {

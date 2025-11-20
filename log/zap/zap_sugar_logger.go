@@ -1,7 +1,7 @@
 package zap
 
 import (
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
+	"github.com/ThomasVNN/be-base/log"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )

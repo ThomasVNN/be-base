@@ -7,8 +7,8 @@ package prometheus
 import (
 	"github.com/prometheus/client_golang/prometheus"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics/internal/lv"
+	"github.com/ThomasVNN/be-base/metrics"
+	"github.com/ThomasVNN/be-base/metrics/internal/lv"
 )
 
 // Counter implements Counter, via a Prometheus CounterVec.

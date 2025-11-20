@@ -12,8 +12,8 @@ import (
 	"github.com/nats-io/nats-server/v2/server"
 	"github.com/nats-io/nats.go"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
-	natstransport "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/nats"
+	"github.com/ThomasVNN/be-base/endpoint"
+	natstransport "github.com/ThomasVNN/be-base/transport/nats"
 )
 
 type TestResponse struct {

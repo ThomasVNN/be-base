@@ -3,12 +3,12 @@ package auth
 import (
 	"testing"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/cache"
+	"github.com/ThomasVNN/be-base/cache"
 )
 
-//--------------------------------------------------
+// --------------------------------------------------
 // For testing purposes only!
-//--------------------------------------------------
+// --------------------------------------------------
 type testAuthenticator struct {
 	ID   string
 	Hash string

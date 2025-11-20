@@ -10,8 +10,8 @@ import (
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
-	kitgrpc "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/grpc"
+	"github.com/ThomasVNN/be-base/log"
+	kitgrpc "github.com/ThomasVNN/be-base/transport/grpc"
 )
 
 // GRPCClientTrace enables native Zipkin tracing of a Go kit gRPC transport

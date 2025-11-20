@@ -4,7 +4,7 @@ import (
 	"math"
 	"math/rand"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics"
+	"github.com/ThomasVNN/be-base/metrics"
 )
 
 // PopulateNormalHistogram makes a series of normal random observations into the

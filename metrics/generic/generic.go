@@ -12,8 +12,8 @@ import (
 
 	"github.com/VividCortex/gohistogram"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics/internal/lv"
+	"github.com/ThomasVNN/be-base/metrics"
+	"github.com/ThomasVNN/be-base/metrics/internal/lv"
 )
 
 // Counter is an in-memory implementation of a Counter.

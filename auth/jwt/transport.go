@@ -3,14 +3,14 @@ package jwt
 import (
 	"context"
 	"fmt"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/storage/local"
+	"github.com/ThomasVNN/be-base/storage/local"
 	stdhttp "net/http"
 	"strings"
 
 	"google.golang.org/grpc/metadata"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/grpc"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/http"
+	"github.com/ThomasVNN/be-base/transport/grpc"
+	"github.com/ThomasVNN/be-base/transport/http"
 )
 
 const (

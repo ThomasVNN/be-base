@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"testing"
 
-	httptransport "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/http"
+	httptransport "github.com/ThomasVNN/be-base/transport/http"
 )
 
 func TestWithBasicAuth(t *testing.T) {

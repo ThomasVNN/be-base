@@ -1,7 +1,7 @@
 // Package discard provides a no-op metrics backend.
 package discard
 
-import "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics"
+import "github.com/ThomasVNN/be-base/metrics"
 
 type counter struct{}
 

@@ -7,16 +7,16 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/storage/local"
+	"github.com/ThomasVNN/be-base/storage/local"
 	"io"
 	"net/http"
 	"strconv"
 	"strings"
 	"time"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport"
+	"github.com/ThomasVNN/be-base/endpoint"
+	"github.com/ThomasVNN/be-base/log"
+	"github.com/ThomasVNN/be-base/transport"
 )
 
 // Server wraps an endpoint and implements http.Handler.
@@ -278,30 +278,30 @@ func ExecuteHTTP(ctx context.Context, req *http.Request, target interface{}) err
 	return err
 }
 
-func GetTokenAPIm(ctx context.Context) (*APIsToken, error){
+func GetTokenAPIm(ctx context.Context) (*APIsToken, error) {
 	apimAddress := local.Getenv("APIM_HOST_ADDR")
 	username := local.Getenv("APIM_USER_NAME")
 	password := local.Getenv("APIM_USER_PASSWORD")
 	auth := local.Getenv("APIM_USER_AUTH")
 	url := fmt.Sprintf("%s/token", apimAddress)
 	method := "POST"
-	body := fmt.Sprintf("username=%s&password=%s&grant_type=password", username,password)
+	body := fmt.Sprintf("username=%s&password=%s&grant_type=password", username, password)
 	payload := strings.NewReader(body)
 	req, err := http.NewRequest(method, url, payload)
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 	req.Header.Add("Authorization", auth)
 	token := APIsToken{}
-	err = ExecuteHTTP(ctx,req,&token)
+	err = ExecuteHTTP(ctx, req, &token)
 	if err != nil {
 		return nil, err
- 	}
+	}
 
 	diedTime := time.Now().Add(time.Second * time.Duration(token.ExpiresIn))
 	nsec := diedTime.UnixNano()
 	apimToken := fmt.Sprintf("%s %s", token.TokenType, token.AccessToken)
-	local.Setenv("API_SMARTSALE_TOKEN",apimToken)
+	local.Setenv("API_SMARTSALE_TOKEN", apimToken)
 	end := fmt.Sprintf("%v", nsec)
-	local.Setenv("API_SMARTSALE_TOKEN_EXPIRES",end)
+	local.Setenv("API_SMARTSALE_TOKEN_EXPIRES", end)
 	return &token, nil
 }
 
@@ -313,8 +313,8 @@ type APIsToken struct {
 	ExpiresIn    int    `json:"expires_in"`
 }
 
-func APImBaseRequest(ctx context.Context, url,method string, body io.Reader)  (*http.Request, error)  {
-	req, err := http.NewRequest(method, url,body)
+func APImBaseRequest(ctx context.Context, url, method string, body io.Reader) (*http.Request, error) {
+	req, err := http.NewRequest(method, url, body)
 	if err != nil {
 		return nil, err
 	}
@@ -326,9 +326,9 @@ func APImBaseRequest(ctx context.Context, url,method string, body io.Reader)  (*
 	apimToken := local.Getenv("API_SMARTSALE_TOKEN")
 	nsec := time.Now().UnixNano()
 	if exp < nsec {
-		token ,err := GetTokenAPIm(ctx)
-		if err != nil  {
-			return  nil, err
+		token, err := GetTokenAPIm(ctx)
+		if err != nil {
+			return nil, err
 		}
 		apimToken = fmt.Sprintf("%s %s", token.TokenType, token.AccessToken)
 	}
@@ -337,32 +337,31 @@ func APImBaseRequest(ctx context.Context, url,method string, body io.Reader)  (*
 	req.Header.Add("Authorization", apimToken)
 	return req, nil
 }
-func RestBasicAuth(ctx context.Context,url, method, basicToken string,requestBody interface{}, target interface{}) error  {
+func RestBasicAuth(ctx context.Context, url, method, basicToken string, requestBody interface{}, target interface{}) error {
 	req, err := http.NewRequest(method, url, strings.NewReader(requestBody.(string)))
 	if err != nil {
 		return err
 	}
 	req.Header.Add("Authorization", basicToken)
-	return ExecuteHTTP(ctx,req,&target)
+	return ExecuteHTTP(ctx, req, &target)
 }
 
-
-func ExecuteClient(urlPath, method string, body io.Reader)  (*http.Request, error)  {
+func ExecuteClient(urlPath, method string, body io.Reader) (*http.Request, error) {
 	url := fmt.Sprintf("%s%s", local.Getenv("EKYC_HOST"), urlPath)
-	req, err := http.NewRequest(method, url,body)
+	req, err := http.NewRequest(method, url, body)
 	if err != nil {
 		return nil, err
 	}
 	accessKey := local.Getenv("EKYC_ACCESS_KEY")
 	secret := local.Getenv("EKYC_SECRET")
 	timestamp := time.Now().Format(time.RFC3339)
-	message := fmt.Sprintf("%s\n%s\n%s", method,urlPath, timestamp)
+	message := fmt.Sprintf("%s\n%s\n%s", method, urlPath, timestamp)
 	hash := hmac.New(sha256.New, []byte(secret))
 	hash.Write([]byte(message))
 	sha := hash.Sum(nil)
-	str := 	base64.StdEncoding.EncodeToString(sha)
+	str := base64.StdEncoding.EncodeToString(sha)
 	req.Header.Add("signeddata", "SHA1withRSA")
-	req.Header.Add("Authorization", fmt.Sprintf("TV %s:%s", accessKey,str))
+	req.Header.Add("Authorization", fmt.Sprintf("TV %s:%s", accessKey, str))
 	req.Header.Add("X-TV-Timestamp", timestamp)
 	return req, nil
 }
@@ -370,9 +369,9 @@ func ExecuteClient(urlPath, method string, body io.Reader)  (*http.Request, erro
 func LoggingMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		token := r.Header.Get("Authorization")
-		if len(token) <12 {
+		if len(token) < 12 {
 			http.Error(w, "Forbidden", http.StatusForbidden)
-		}else {
+		} else {
 			next.ServeHTTP(w, r)
 		}
 	})

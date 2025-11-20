@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics"
+	"github.com/ThomasVNN/be-base/metrics"
 )
 
 func TestMultiCounter(t *testing.T) {

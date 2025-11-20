@@ -3,7 +3,7 @@ package transport
 import (
 	"context"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
+	"github.com/ThomasVNN/be-base/log"
 )
 
 // ErrorHandler receives a transport error to be processed for diagnostic purposes.

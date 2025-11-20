@@ -9,8 +9,8 @@ import (
 	"net/url"
 	"sync/atomic"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
-	gotransport "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/http"
+	"github.com/ThomasVNN/be-base/endpoint"
+	gotransport "github.com/ThomasVNN/be-base/transport/http"
 )
 
 // Client wraps a JSON RPC method and provides a method that implements endpoint.Endpoint.

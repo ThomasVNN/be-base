@@ -8,7 +8,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
+	"github.com/ThomasVNN/be-base/endpoint"
 )
 
 // Client wraps a gRPC connection and provides a method that implements

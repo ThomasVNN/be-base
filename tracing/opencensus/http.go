@@ -8,7 +8,7 @@ import (
 	"go.opencensus.io/plugin/ochttp/propagation/b3"
 	"go.opencensus.io/trace"
 
-	kithttp "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/http"
+	kithttp "github.com/ThomasVNN/be-base/transport/http"
 )
 
 // HTTPClientTrace enables OpenCensus tracing of a Go kit HTTP transport client.

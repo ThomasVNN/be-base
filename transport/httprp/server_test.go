@@ -8,7 +8,7 @@ import (
 	"net/url"
 	"testing"
 
-	gotransport "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/httprp"
+	gotransport "github.com/ThomasVNN/be-base/transport/httprp"
 )
 
 func TestServerHappyPathSingleServer(t *testing.T) {

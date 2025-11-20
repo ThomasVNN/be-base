@@ -11,9 +11,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/metadata"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
-	ockit "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/tracing/opencensus"
-	grpctransport "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/grpc"
+	"github.com/ThomasVNN/be-base/endpoint"
+	ockit "github.com/ThomasVNN/be-base/tracing/opencensus"
+	grpctransport "github.com/ThomasVNN/be-base/transport/grpc"
 )
 
 type dummy struct{}

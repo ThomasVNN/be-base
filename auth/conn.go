@@ -4,16 +4,16 @@ import (
 	"crypto/tls"
 	"errors"
 	"fmt"
-	ldap "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/ldap"
+	ldap "github.com/ThomasVNN/be-base/ldap"
 )
 
-//Conn represents an Active Directory connection.
+// Conn represents an Active Directory connection.
 type Conn struct {
 	Conn   *ldap.Conn
 	Config *Config
 }
 
-//Connect returns an open connection to an Active Directory server or an error if one occurred.
+// Connect returns an open connection to an Active Directory server or an error if one occurred.
 func (c *Config) Connect() (*Conn, error) {
 	switch c.Security {
 	case SecurityNone:
@@ -59,8 +59,8 @@ func (c *Config) Connect() (*Conn, error) {
 	}
 }
 
-//Bind authenticates the connection with the given userPrincipalName and password
-//and returns the result or an error if one occurred.
+// Bind authenticates the connection with the given userPrincipalName and password
+// and returns the result or an error if one occurred.
 func (c *Conn) Bind(upn, password string) (bool, error) {
 	if password == "" {
 		return false, nil

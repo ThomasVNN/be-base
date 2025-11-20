@@ -14,10 +14,10 @@ import (
 	"sync"
 	"time"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics/generic"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/util/conn"
+	"github.com/ThomasVNN/be-base/log"
+	"github.com/ThomasVNN/be-base/metrics"
+	"github.com/ThomasVNN/be-base/metrics/generic"
+	"github.com/ThomasVNN/be-base/util/conn"
 )
 
 // Graphite receives metrics observations and forwards them to a Graphite server.

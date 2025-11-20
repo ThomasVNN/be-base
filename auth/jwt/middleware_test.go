@@ -8,8 +8,8 @@ import (
 
 	"crypto/subtle"
 
+	"github.com/ThomasVNN/be-base/endpoint"
 	jwt "github.com/dgrijalva/jwt-go"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
 )
 
 type customClaims struct {

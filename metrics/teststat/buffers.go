@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"strconv"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics/generic"
+	"github.com/ThomasVNN/be-base/metrics/generic"
 )
 
 // SumLines expects a regex whose first capture group can be parsed as a

@@ -1,6 +1,6 @@
 package levels
 
-import "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
+import "github.com/ThomasVNN/be-base/log"
 
 // Levels provides a leveled logging wrapper around a logger. It has five
 // levels: debug, info, warning (warn), error, and critical (crit). If you

@@ -6,7 +6,7 @@ import (
 
 	influxdb "github.com/influxdata/influxdb1-client/v2"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
+	"github.com/ThomasVNN/be-base/log"
 )
 
 func ExampleCounter() {

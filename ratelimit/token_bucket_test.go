@@ -8,8 +8,8 @@ import (
 
 	"golang.org/x/time/rate"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/ratelimit"
+	"github.com/ThomasVNN/be-base/endpoint"
+	"github.com/ThomasVNN/be-base/ratelimit"
 )
 
 var nopEndpoint = func(context.Context, interface{}) (interface{}, error) { return struct{}{}, nil }

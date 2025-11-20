@@ -66,7 +66,7 @@ Redirect stdlib logger to Go kit logger.
 import (
 	"os"
 	stdlog "log"
-	golog "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
+	golog "github.com/ThomasVNN/be-base/log"
 )
 
 func main() {
@@ -105,7 +105,7 @@ logger.Log("msg", "hello")
 
 ## Levels
 
-Log levels are supported via the [level package](https://godoc.org/git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log/level).
+Log levels are supported via the [level package](https://godoc.org/github.com/ThomasVNN/be-base/log/level).
 
 ## Supported output formats
 
@@ -127,20 +127,20 @@ and evaluation. For more details on the evolution of the Logger interface,
 see [The Hunt for a Logger Interface](http://go-talks.appspot.com/github.com/ChrisHines/talks/structured-logging/structured-logging.slide#1),
 a talk by [Chris Hines](https://github.com/ChrisHines).
 Also, please see
-[#63](https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/issues/63),
-[#76](https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/pull/76),
-[#131](https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/issues/131),
-[#157](https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/pull/157),
-[#164](https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/issues/164), and
-[#252](https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/pull/252)
+[#63](https://github.com/ThomasVNN/be-base/issues/63),
+[#76](https://github.com/ThomasVNN/be-base/pull/76),
+[#131](https://github.com/ThomasVNN/be-base/issues/131),
+[#157](https://github.com/ThomasVNN/be-base/pull/157),
+[#164](https://github.com/ThomasVNN/be-base/issues/164), and
+[#252](https://github.com/ThomasVNN/be-base/pull/252)
 to review historical conversations about package log and the Logger interface.
 
 Value-add packages and suggestions,
-like improvements to [the leveled logger](https://godoc.org/git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log/level),
+like improvements to [the leveled logger](https://godoc.org/github.com/ThomasVNN/be-base/log/level),
 are of course welcome. Good proposals should
 
-- Be composable with [contextual loggers](https://godoc.org/git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log#With),
-- Not break the behavior of [log.Caller](https://godoc.org/git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log#Caller) in any wrapped contextual loggers, and
+- Be composable with [contextual loggers](https://godoc.org/github.com/ThomasVNN/be-base/log#With),
+- Not break the behavior of [log.Caller](https://godoc.org/github.com/ThomasVNN/be-base/log#Caller) in any wrapped contextual loggers, and
 - Be friendly to packages that accept only an unadorned log.Logger.
 
 ## Benchmarks & comparisons

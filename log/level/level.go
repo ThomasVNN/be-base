@@ -1,6 +1,6 @@
 package level
 
-import "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
+import "github.com/ThomasVNN/be-base/log"
 
 // Error returns a logger that includes a Key/ErrorValue pair.
 func Error(logger log.Logger) log.Logger {

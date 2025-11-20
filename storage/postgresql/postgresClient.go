@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/storage/local"
+	"github.com/ThomasVNN/be-base/storage/local"
 	"github.com/aws/aws-sdk-go/aws"
 	awssession "github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/secretsmanager"
@@ -22,9 +22,9 @@ type DatabaseAuth struct {
 
 func GetConnection() (db *gorm.DB, err error) {
 	databas_eAuth, err := getDatabaseAuth()
-	if err != nil{
+	if err != nil {
 		log.Printf("Cannot get AWS ENV:", err)
-		return  nil, err
+		return nil, err
 	}
 	psql := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
 		databas_eAuth.Host, databas_eAuth.Port, databas_eAuth.UserName, databas_eAuth.Password, local.Getenv("PG_DB_NAME"))

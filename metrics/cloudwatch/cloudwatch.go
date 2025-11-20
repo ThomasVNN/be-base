@@ -12,10 +12,10 @@ import (
 	"github.com/aws/aws-sdk-go/service/cloudwatch"
 	"github.com/aws/aws-sdk-go/service/cloudwatch/cloudwatchiface"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics/generic"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics/internal/lv"
+	"github.com/ThomasVNN/be-base/log"
+	"github.com/ThomasVNN/be-base/metrics"
+	"github.com/ThomasVNN/be-base/metrics/generic"
+	"github.com/ThomasVNN/be-base/metrics/internal/lv"
 )
 
 const (

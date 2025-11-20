@@ -10,9 +10,9 @@ import (
 	"github.com/aws/aws-sdk-go/service/cloudwatch"
 	"github.com/aws/aws-sdk-go/service/cloudwatch/cloudwatchiface"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics/teststat"
+	"github.com/ThomasVNN/be-base/log"
+	"github.com/ThomasVNN/be-base/metrics"
+	"github.com/ThomasVNN/be-base/metrics/teststat"
 )
 
 const metricNameToGenerateError = "metric_name_used_to_throw_an_error"

@@ -3,7 +3,7 @@ package zipkin
 import (
 	"net/http"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
+	"github.com/ThomasVNN/be-base/log"
 )
 
 // TracerOption allows for functional options to our Zipkin tracing middleware.

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/http/jsonrpc"
+	"github.com/ThomasVNN/be-base/transport/http/jsonrpc"
 )
 
 func TestCanUnMarshalID(t *testing.T) {

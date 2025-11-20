@@ -4,9 +4,9 @@ import (
 	"context"
 	"encoding/json"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport"
+	"github.com/ThomasVNN/be-base/endpoint"
+	"github.com/ThomasVNN/be-base/log"
+	"github.com/ThomasVNN/be-base/transport"
 
 	"github.com/nats-io/nats.go"
 )

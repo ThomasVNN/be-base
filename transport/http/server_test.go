@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
-	gotransport "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/http"
+	"github.com/ThomasVNN/be-base/endpoint"
+	gotransport "github.com/ThomasVNN/be-base/transport/http"
 )
 
 func TestServerBadDecode(t *testing.T) {

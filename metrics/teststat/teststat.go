@@ -10,7 +10,7 @@ import (
 	"sort"
 	"strings"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics"
+	"github.com/ThomasVNN/be-base/metrics"
 )
 
 // TestCounter puts some deltas through the counter, and then calls the value

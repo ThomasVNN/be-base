@@ -9,7 +9,7 @@ import (
 	"github.com/opentracing/opentracing-go/ext"
 	"google.golang.org/grpc/metadata"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
+	"github.com/ThomasVNN/be-base/log"
 )
 
 // ContextToGRPC returns a grpc RequestFunc that injects an OpenTracing Span

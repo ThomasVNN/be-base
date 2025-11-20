@@ -4,12 +4,12 @@ import (
 	"errors"
 	"fmt"
 
-	ldap "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/ldap"
+	ldap "github.com/ThomasVNN/be-base/ldap"
 	"golang.org/x/text/encoding/unicode"
 )
 
-//ModifyDNPassword sets a new password for the given user or returns an error if one occurred.
-//ModifyDNPassword is used for resetting user passwords using administrative privileges.
+// ModifyDNPassword sets a new password for the given user or returns an error if one occurred.
+// ModifyDNPassword is used for resetting user passwords using administrative privileges.
 func (c *Conn) ModifyDNPassword(dn, newPasswd string) error {
 	utf16 := unicode.UTF16(unicode.LittleEndian, unicode.IgnoreBOM)
 	encoded, err := utf16.NewEncoder().String(fmt.Sprintf(`"%s"`, newPasswd))
@@ -28,8 +28,8 @@ func (c *Conn) ModifyDNPassword(dn, newPasswd string) error {
 	return nil
 }
 
-//UpdatePassword checks if the given credentials are valid and updates the password if they are,
-//or returns an error if one occurred. UpdatePassword is used for users resetting their own password.
+// UpdatePassword checks if the given credentials are valid and updates the password if they are,
+// or returns an error if one occurred. UpdatePassword is used for users resetting their own password.
 func UpdatePassword(config *Config, username, oldPasswd, newPasswd string) error {
 	utf16 := unicode.UTF16(unicode.LittleEndian, unicode.IgnoreBOM)
 	oldEncoded, err := utf16.NewEncoder().String(fmt.Sprintf(`"%s"`, oldPasswd))

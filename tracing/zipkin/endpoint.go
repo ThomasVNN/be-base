@@ -6,7 +6,7 @@ import (
 	"github.com/openzipkin/zipkin-go"
 	"github.com/openzipkin/zipkin-go/model"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
+	"github.com/ThomasVNN/be-base/endpoint"
 )
 
 // TraceEndpoint returns an Endpoint middleware, tracing a Go kit endpoint.

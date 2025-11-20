@@ -6,8 +6,8 @@ import (
 
 	"go.opencensus.io/trace"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/sd/lb"
+	"github.com/ThomasVNN/be-base/endpoint"
+	"github.com/ThomasVNN/be-base/sd/lb"
 )
 
 // TraceEndpointDefaultName is the default endpoint span name to use.

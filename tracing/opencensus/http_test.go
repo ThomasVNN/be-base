@@ -14,9 +14,9 @@ import (
 	"go.opencensus.io/trace"
 	"go.opencensus.io/trace/propagation"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
-	ockit "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/tracing/opencensus"
-	kithttp "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/http"
+	"github.com/ThomasVNN/be-base/endpoint"
+	ockit "github.com/ThomasVNN/be-base/tracing/opencensus"
+	kithttp "github.com/ThomasVNN/be-base/transport/http"
 )
 
 func TestHTTPClientTrace(t *testing.T) {

@@ -2,7 +2,7 @@
 // as one of the other types
 package convert
 
-import "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics"
+import "github.com/ThomasVNN/be-base/metrics"
 
 type counterHistogram struct {
 	c metrics.Counter

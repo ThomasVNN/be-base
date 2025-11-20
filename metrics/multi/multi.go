@@ -4,7 +4,7 @@
 // transitioning from one system to another.
 package multi
 
-import "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics"
+import "github.com/ThomasVNN/be-base/metrics"
 
 // Counter collects multiple individual counters and treats them as a unit.
 type Counter []metrics.Counter

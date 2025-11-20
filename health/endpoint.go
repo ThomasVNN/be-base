@@ -2,7 +2,7 @@ package health
 
 import (
 	"context"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
+	"github.com/ThomasVNN/be-base/endpoint"
 )
 
 // healthCheckRequest has no parameters, but we still generate an empty struct to represent it
@@ -10,8 +10,8 @@ type healthCheckRequest struct{}
 
 // healthCheckResponse represents an HTTP response from the health endpoint containing any errors
 type healthCheckResponse struct {
-	Error 	error 	`json:"error,omitempty"`
-	Msg 	string	`json:"msg"`
+	Error error  `json:"error,omitempty"`
+	Msg   string `json:"msg"`
 }
 
 // error is an implementation of the errorer interface allowing us to encode errors received from the service
@@ -21,8 +21,8 @@ func (r healthCheckResponse) error() error { return r.Error }
 func makeHealthCheckEndpoint() endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (interface{}, error) {
 		return healthCheckResponse{
-			Error:nil,
-			Msg: "ok",
+			Error: nil,
+			Msg:   "ok",
 		}, nil
 	}
 }

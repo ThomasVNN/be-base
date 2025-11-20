@@ -3,7 +3,7 @@ package test
 import (
 	"context"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/grpc/_grpc_test/pb"
+	"github.com/ThomasVNN/be-base/transport/grpc/_grpc_test/pb"
 )
 
 func encodeRequest(ctx context.Context, req interface{}) (interface{}, error) {

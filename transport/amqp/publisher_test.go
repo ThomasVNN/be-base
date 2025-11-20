@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	amqptransport "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/amqp"
+	amqptransport "github.com/ThomasVNN/be-base/transport/amqp"
 	"github.com/streadway/amqp"
 )
 

@@ -1,14 +1,14 @@
 package health
 
 import (
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport"
+	"github.com/ThomasVNN/be-base/transport"
 	"net/http"
 
 	"context"
 	"encoding/json"
 
-	golog "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
-	gotransport "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/http"
+	golog "github.com/ThomasVNN/be-base/log"
+	gotransport "github.com/ThomasVNN/be-base/transport/http"
 
 	"github.com/gorilla/mux"
 )
@@ -42,11 +42,13 @@ func errorEncoder(_ context.Context, err error, w http.ResponseWriter) {
 	w.WriteHeader(http.StatusBadRequest)
 	json.NewEncoder(w).Encode(ErrorResponse{Error: err.Error()})
 }
+
 // ErrorResponse ...
 type ErrorResponse struct {
 	Error string `json:"error"`
 }
-	// decodeHealthCheckRequest returns an empty healthCheck request because there are no params for this request
+
+// decodeHealthCheckRequest returns an empty healthCheck request because there are no params for this request
 func decodeHealthCheckRequest(_ context.Context, r *http.Request) (interface{}, error) {
 	return healthCheckRequest{}, nil
 }

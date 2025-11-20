@@ -7,7 +7,7 @@ More details about this type of authentication can be found in [Mozilla article]
 ## Usage
 
 ```go
-import gotransport "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/http"
+import gotransport "github.com/ThomasVNN/be-base/transport/http"
 
 gotransport.NewServer(
 		AuthMiddleware(cfg.auth.user, cfg.auth.password, "Example Realm")(makeUppercaseEndpoint()),

@@ -7,11 +7,11 @@ package auth
 import (
 	"context"
 	"fmt"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/cache"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/errors"
-	ldap "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/ldap"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/storage/local"
-	httpTransport "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/http"
+	"github.com/ThomasVNN/be-base/cache"
+	"github.com/ThomasVNN/be-base/errors"
+	ldap "github.com/ThomasVNN/be-base/ldap"
+	"github.com/ThomasVNN/be-base/storage/local"
+	httpTransport "github.com/ThomasVNN/be-base/transport/http"
 	"golang.org/x/crypto/bcrypt"
 	"net/http"
 	"strconv"
@@ -24,71 +24,72 @@ var (
 )
 
 const (
-	ADMIN      					= 			"admin"
-	STAFF         				= 			"staff"
+	ADMIN = "admin"
+	STAFF = "staff"
 )
+
 // admin is a staff
 type User struct {
-	Id     						string      `json:"id"`
-	FullName		    		string      `json:"full_name"`
-	UserName		    		string      `json:"user_name"`
-	TaxCode    					string      `json:"tax_code"`
-	BankAccount   				string      `json:"bank_account"`
-	BankCode	   				string      `json:"bank_code"`
-	Phone    					string      `json:"phone_num"`
-	Email    					string      `json:"email"`
-	Gender    					string      `json:"gender"`
-	Avatar   					string      `json:"avatar"`
-	Status						string      `json:"status"`
-	IdcardNum    				string      `json:"idcard_num"`
-	ShowroomId					string      `json:"showroom_id"`
-	IdcardIssueDate				string		`json:"idcard_issue_date"`
-	IdcardIssuePlaceName		string		`json:"idcard_issue_place_name"`
-	IdcardIssuePlaceCode		string		`json:"idcard_issue_place_code"`
-	DateOfBirth					string		`json:"idcard_issue_date"`
-	VibStaffId					string		`json:"-"`
-	CreateAt         			time.Time  	`json:"-"`
-	UpdateAt          			time.Time  	`json:"-"`
+	Id                   string    `json:"id"`
+	FullName             string    `json:"full_name"`
+	UserName             string    `json:"user_name"`
+	TaxCode              string    `json:"tax_code"`
+	BankAccount          string    `json:"bank_account"`
+	BankCode             string    `json:"bank_code"`
+	Phone                string    `json:"phone_num"`
+	Email                string    `json:"email"`
+	Gender               string    `json:"gender"`
+	Avatar               string    `json:"avatar"`
+	Status               string    `json:"status"`
+	IdcardNum            string    `json:"idcard_num"`
+	ShowroomId           string    `json:"showroom_id"`
+	IdcardIssueDate      string    `json:"idcard_issue_date"`
+	IdcardIssuePlaceName string    `json:"idcard_issue_place_name"`
+	IdcardIssuePlaceCode string    `json:"idcard_issue_place_code"`
+	DateOfBirth          string    `json:"idcard_issue_date"`
+	VibStaffId           string    `json:"-"`
+	CreateAt             time.Time `json:"-"`
+	UpdateAt             time.Time `json:"-"`
 }
 
 type OMSInfo struct {
-	ID                   	string      	`json:"id"`
-	Loginname            	string      	`json:"loginName"`
-	Fullname             	string      	`json:"fullName"`
-	Fullnameen           	string      	`json:"fullNameEn"`
-	Email                	string      	`json:"email"`
-	Code                 	string      	`json:"code"`
-	Address              	string      	`json:"address"`
-	Addressid            	string      	`json:"addressId"`
-	Mobile               	string      	`json:"mobile"`
-	Status               	string      	`json:"status"`
-	Ext                  	string      	`json:"ext"`
-	Imageurl             	string			 `json:"imageUrl"`
-	Joiningdate          	string      	`json:"joiningDate"`
-	StartDate         		string      	`json:"contractStartDate"`
-	Gender               	string      	`json:"gender"`
-	Birthday             	string      	`json:"birthDay"`
-	LineManagerLoginName 	string			`json:"lineManagerLoginName"`
-	LineManagerEmail 		string			`json:"lineManagerEmail"`
-	Deptid               	string      	`json:"deptId"`
-	Deptcode             	string      	`json:"deptCode"`
-	Idno                 	string      	`json:"idNo"`
-	Idissuedate          	string      	`json:"idIssueDate"`
-	Idissueplace         	string      	`json:"idIssuePlace"`
-	Nationality          	string      	`json:"nationality"`
-	Navaddress           	string      	`json:"navAddress"`
-	Curaddress           	string      	`json:"curAddress"`
-	Addisplayname        	string      	`json:"adDisplayName"`
-	Positions            	[]struct {
-		ID                     							string      `json:"id"`
-		Code                   							string      `json:"code"`
-		Nameen                 							string      `json:"nameEn"`
-		Namevn                 							string      `json:"nameVn"`
-		Linemanagerposcode     							string      `json:"lineManagerPosCode"`
-		Linemanagerloginname   							string      `json:"lineManagerLoginName"`
-		Linemanagerempcode     							string      `json:"lineManagerEmpCode"`
-		Linemanagerempfullname 							string      `json:"lineManagerEmpFullName"`
-		JobCode				 							string		`json:"jobCode"`
+	ID                   string `json:"id"`
+	Loginname            string `json:"loginName"`
+	Fullname             string `json:"fullName"`
+	Fullnameen           string `json:"fullNameEn"`
+	Email                string `json:"email"`
+	Code                 string `json:"code"`
+	Address              string `json:"address"`
+	Addressid            string `json:"addressId"`
+	Mobile               string `json:"mobile"`
+	Status               string `json:"status"`
+	Ext                  string `json:"ext"`
+	Imageurl             string `json:"imageUrl"`
+	Joiningdate          string `json:"joiningDate"`
+	StartDate            string `json:"contractStartDate"`
+	Gender               string `json:"gender"`
+	Birthday             string `json:"birthDay"`
+	LineManagerLoginName string `json:"lineManagerLoginName"`
+	LineManagerEmail     string `json:"lineManagerEmail"`
+	Deptid               string `json:"deptId"`
+	Deptcode             string `json:"deptCode"`
+	Idno                 string `json:"idNo"`
+	Idissuedate          string `json:"idIssueDate"`
+	Idissueplace         string `json:"idIssuePlace"`
+	Nationality          string `json:"nationality"`
+	Navaddress           string `json:"navAddress"`
+	Curaddress           string `json:"curAddress"`
+	Addisplayname        string `json:"adDisplayName"`
+	Positions            []struct {
+		ID                     string `json:"id"`
+		Code                   string `json:"code"`
+		Nameen                 string `json:"nameEn"`
+		Namevn                 string `json:"nameVn"`
+		Linemanagerposcode     string `json:"lineManagerPosCode"`
+		Linemanagerloginname   string `json:"lineManagerLoginName"`
+		Linemanagerempcode     string `json:"lineManagerEmpCode"`
+		Linemanagerempfullname string `json:"lineManagerEmpFullName"`
+		JobCode                string `json:"jobCode"`
 	} `json:"positions"`
 }
 
@@ -113,7 +114,7 @@ func HashPassword(plainText string) (string, error) {
 	return string(hash[:]), nil
 }
 
-func ComparePassword(HashedPassword, plainTextPassword string)  error {
+func ComparePassword(HashedPassword, plainTextPassword string) error {
 	return bcrypt.CompareHashAndPassword([]byte(HashedPassword), []byte(plainTextPassword))
 }
 
@@ -132,7 +133,7 @@ func SignOut(token string) error {
 	if err := authCache.Delete(getAccessTokenCacheKey(token)); err != nil {
 		return err
 	}
-	if  err := authCache.Delete(getProfileCacheKey(token)); err != nil {
+	if err := authCache.Delete(getProfileCacheKey(token)); err != nil {
 		return err
 	}
 	return nil
@@ -158,13 +159,13 @@ func GetUserProfileCache(token string, userProfile interface{}) error {
 }
 func SetUserProfileCache(token string, userProfile interface{}) (interface{}, error) {
 	expiresTime := time.Duration(3600)
-	if getTime , err := strconv.Atoi(local.Getenv("TOKEN_EXPIRES_TIME")); err == nil {
+	if getTime, err := strconv.Atoi(local.Getenv("TOKEN_EXPIRES_TIME")); err == nil {
 		expiresTime = time.Duration(getTime)
 	}
 	save, err := authCache.PutMarshaled(getProfileCacheKey(token), userProfile)
-	if err !=nil {
+	if err != nil {
 		return nil, err
-	}else if  err := authCache.Expire(getProfileCacheKey(token), expiresTime); err != nil {
+	} else if err := authCache.Expire(getProfileCacheKey(token), expiresTime); err != nil {
 		return nil, err
 	}
 	return save, nil
@@ -172,6 +173,7 @@ func SetUserProfileCache(token string, userProfile interface{}) (interface{}, er
 func GetIdentifierForProfileKey(token string) (string, error) {
 	return authCache.GetString(getProfileCacheKey(token))
 }
+
 // GetIdentifierForAccessToken returns a user's identifier, as returned by
 // the Authenticator interface, if it exists in the cache.
 //
@@ -201,26 +203,26 @@ func GenerateAndStoreTokens(a Authenticator) (AuthenticationTokenPair, error) {
 // cacheTokens stores an access token and refresh token pair for an authenticated User.
 func cacheTokens(t AuthenticationTokenPair, a Authenticator) error {
 	expiresTime := time.Duration(3600)
-	if getTime , err := strconv.Atoi(local.Getenv("TOKEN_EXPIRES_TIME")); err == nil {
+	if getTime, err := strconv.Atoi(local.Getenv("TOKEN_EXPIRES_TIME")); err == nil {
 		expiresTime = time.Duration(getTime)
 	}
 	if _, err := authCache.PutString(getAccessTokenCacheKey(t.AccessToken), a.Identifier()); err != nil {
 		return err
 	}
-	if  err := authCache.Expire(getAccessTokenCacheKey(t.AccessToken), expiresTime); err != nil {
+	if err := authCache.Expire(getAccessTokenCacheKey(t.AccessToken), expiresTime); err != nil {
 		return err
 	}
 
 	if _, err := authCache.PutString(getRefreshTokenCacheKey(t.RefreshToken), a.Identifier()); err != nil {
 		return err
 	}
-	if  err := authCache.Expire(getRefreshTokenCacheKey(t.RefreshToken), expiresTime); err != nil {
+	if err := authCache.Expire(getRefreshTokenCacheKey(t.RefreshToken), expiresTime); err != nil {
 		return err
 	}
 	if _, err := authCache.PutString(getRefreshToAccessTokenCacheKey(t.RefreshToken), t.AccessToken); err != nil {
 		return err
 	}
-	if  err := authCache.Expire(getRefreshToAccessTokenCacheKey(t.RefreshToken), expiresTime*2); err != nil {
+	if err := authCache.Expire(getRefreshToAccessTokenCacheKey(t.RefreshToken), expiresTime*2); err != nil {
 		return err
 	}
 	return nil
@@ -262,11 +264,11 @@ func clearCachedTokens(r string) error {
 func GetUserIdByRequestContext(ctx context.Context) (string, error) {
 	token, ok := ctx.Value(local.Getenv("JWT_TOKEN_CONTENT_KEY")).(string)
 	if ok == false {
-		return "",errors.BadRequest("miss token")
+		return "", errors.BadRequest("miss token")
 	}
 	userId, err := GetIdentifierForAccessToken(token)
-	if err != nil || len(userId) <12{
-		return "",errors.Unauthorized("Token not correct")
+	if err != nil || len(userId) < 12 {
+		return "", errors.Unauthorized("Token not correct")
 	}
 	return userId, nil
 }
@@ -281,8 +283,9 @@ func LAPConfig() *Config {
 		Security: SecurityNone,
 	}
 }
-//Authenticate checks if the given credentials are valid, or returns an error if one occurred.
-//username may be either the sAMAccountName or the userPrincipalName.
+
+// Authenticate checks if the given credentials are valid, or returns an error if one occurred.
+// username may be either the sAMAccountName or the userPrincipalName.
 func LDAPAutht(config *Config, username, password string) (bool, error) {
 	upn, err := config.UPN(username)
 	if err != nil {
@@ -298,11 +301,11 @@ func LDAPAutht(config *Config, username, password string) (bool, error) {
 	return conn.Bind(upn, password)
 }
 
-//AuthenticateExtended checks if the given credentials are valid, or returns an error if one occurred.
-//username may be either the sAMAccountName or the userPrincipalName.
-//entry is the *ldap.Entry that holds the DN and any request attributes of the user.
-//If groups is non-empty, userGroups will hold which of those groups the user is a member of.
-//groups can be a list of groups referenced by DN or cn and the format provided will be the format returned.
+// AuthenticateExtended checks if the given credentials are valid, or returns an error if one occurred.
+// username may be either the sAMAccountName or the userPrincipalName.
+// entry is the *ldap.Entry that holds the DN and any request attributes of the user.
+// If groups is non-empty, userGroups will hold which of those groups the user is a member of.
+// groups can be a list of groups referenced by DN or cn and the format provided will be the format returned.
 func AuthenticateExtended(config *Config, username, password string, attrs, groups []string) (status bool, entry *ldap.Entry, userGroups []string, err error) {
 	upn, err := config.UPN(username)
 	if err != nil {
@@ -355,18 +358,17 @@ func AuthenticateExtended(config *Config, username, password string, attrs, grou
 	return status, entry, userGroups, nil
 }
 
-
-func GetLDABProfile(ctx context.Context,rmId string)(*OMSInfo, error) {
-	urls := fmt.Sprintf("%s/v2/employee/find?input=%s", local.Getenv("OMS_HOST_ADDR"),strings.ToLower(rmId))
+func GetLDABProfile(ctx context.Context, rmId string) (*OMSInfo, error) {
+	urls := fmt.Sprintf("%s/v2/employee/find?input=%s", local.Getenv("OMS_HOST_ADDR"), strings.ToLower(rmId))
 	var data []OMSInfo
 	req, err := http.NewRequest(http.MethodGet, urls, nil)
 	if err != nil {
-		return nil,errors.InternalServerError(err)
+		return nil, errors.InternalServerError(err)
 	}
 	req.Header.Add("Authorization", local.Getenv("OMS_API_BASIC_TOKEN"))
 	err = httpTransport.ExecuteHTTP(ctx, req, &data)
 	if err != nil {
-		return nil,errors.InternalServerError(err)
+		return nil, errors.InternalServerError(err)
 	}
 	return &data[0], nil
 }

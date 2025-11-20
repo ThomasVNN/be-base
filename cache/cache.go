@@ -14,7 +14,7 @@ import (
 	"strconv"
 	"time"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/redis"
+	"github.com/ThomasVNN/be-base/redis"
 )
 
 const (
@@ -59,6 +59,7 @@ type RedisConf struct {
 	Server string
 	DB     int
 }
+
 var (
 	ErrNil               = redis.ErrNil
 	ErrTTLNotSet         = errors.New("ttl is not set")
@@ -71,7 +72,7 @@ var (
 func New(host string) *Cache {
 	return &Cache{
 		pool: &redis.Pool{
-			MaxIdle: 80,
+			MaxIdle:   80,
 			MaxActive: 12000,
 			Dial: func() (redis.Conn, error) {
 				return redis.Dial("tcp", host)
@@ -143,7 +144,7 @@ func (c *Cache) Delete(key string) error {
 func (c *Cache) Expire(key string, timeout time.Duration) error {
 	r := c.pool.Get()
 	seconds := strconv.Itoa(int(timeout))
-	reply, err := redis.Int(r.Do("EXPIRE",key, seconds))
+	reply, err := redis.Int(r.Do("EXPIRE", key, seconds))
 	if err != nil {
 		return err
 	}

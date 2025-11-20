@@ -1,0 +1,294 @@
+syntax = "proto3";
+
+option go_package = ".;pb";
+import "google/protobuf/timestamp.proto";
+// -------------- Showroom Service ------------------
+// protoc --go_out=plugins=grpc:. *.proto
+service ShowroomService {
+  rpc GetShowroomDetail(GetByIdRequest) returns (ShowroomReply) {}
+  rpc GetRMInfoById(GetByIdRequest) returns (RMInfoReply) {}
+  rpc AddUserShowroom(AddUserShowroomRequest) returns (UserProfileReply) {}
+}
+message AddUserShowroomRequest {
+  string UserId = 1;
+  string ShowroomId = 2;
+  string Role = 3;
+}
+message GetByIdRequest {
+  string id = 1;
+}
+
+message RMInfoReply {
+  string	Id     					                          = 1;
+  string	UserName				                          = 2;
+  string	FullName    			                        = 3;
+  string	FullNameEn    			                      = 4;
+  string	Email    				                          = 5;
+  string	PhoneNum    			                        = 6;
+  string	BankId					                          = 7;
+  string	BankAddress				                        = 8;
+  string	BankFullAddress			                      = 9;
+  string	Code					                            = 10;
+  string	Status 					                          = 11;
+  string	ImageUrl				                          = 12;
+  string	ContractStartDate		                      = 13;
+  google.protobuf.Timestamp	JoiningDate				      = 14;
+  string	QuitDate				                          = 15;
+  string	Gender 					                          = 16;
+  string	LineManagerId			                        = 17;
+  string	LineManagerCode			                      = 18;
+  string	LineManagerUserName	                      = 19;
+  string	LineManagerEmail		                      = 20;
+  string	LineManagerFullName	                      = 21;
+  bool 	  IsSmartSale				                        = 22;
+  google.protobuf.Timestamp	CreateAt         		    = 23;
+  google.protobuf.Timestamp	UpdateAt          	    = 24;
+}
+
+message ShowroomReply {
+  string id = 1;
+  string partner_type                               = 2;
+  string partner_code                               = 3;
+  string partner_desc                               = 4;
+  string partner_company                            = 5;
+  string partner_province                           = 6;
+  string partner_address                            = 7;
+  string partner_account                            = 8;
+  string brand                                      = 9;
+  string sign_date                                  = 10;
+  string partner_name                                = 11;
+  google.protobuf.Timestamp	CreateAt         		    = 12;
+  google.protobuf.Timestamp	UpdateAt          	    = 13;
+}
+
+
+// -------------- Collateral Service -----------------
+service CollateralService {
+  rpc GetCollateralInfoDetailById(GetByIdRequest) returns (CollateralReply) {}
+}
+message CollateralReply {
+  string	Id     					                          = 1;
+  string	ManufacturerName                          = 2;
+  string	Name    				                          = 3;
+  string	Price    				                          = 4;
+  string	MaxLtv    				                        = 5;
+  string	MaxTenorYear    		                      = 6;
+  string	Type    				                          = 7;
+  string	Status    				                        = 8;
+  google.protobuf.Timestamp	CreateAt         		    = 9;
+  google.protobuf.Timestamp	UpdateAt          	    = 10;
+}
+
+// -------------- Transfer Service ---------------
+
+service AuthService {
+  rpc GetUserProfileById(GetByIdRequest) returns (UserProfileReply) {}
+  rpc GetUserProfileByAccessToken(TokenRequest) returns (UserProfileReply) {}
+  rpc UserSignOut(TokenRequest) returns (UserIdReply) {}
+  rpc UserAuthByPhoneAndPassword(AuthRequest) returns (AccessTokenReReply) {}
+  rpc GetMyRM(GetByIdRequest) returns (MyRMReply) {}
+  rpc SendNotifyToDevice(NotifyRequest) returns (NotifyReply) {}
+  rpc CreateNewUser(UserRequest) returns (UserProfileReply) {}
+  rpc UserAuthByUserNameAndPassword(UserShowroomRequest) returns (AccessTokenReReply) {}
+  rpc UpdateUser(UserRequest) returns (UserProfileReply) {}
+
+}
+message UserShowroomRequest {
+  string	UserName     					                          = 1;
+  string	Password     					                          = 2;
+  string  Type                                            = 3;
+}
+message  UserRequest {
+  string  Id                                              = 1;
+  string  UserName                                        = 2;
+  string  FullName                                        = 3;
+  string  TaxCode                                         = 4;
+  string  BankAccount                                     = 5;
+  string  BankCode                                        = 6;
+  string  Email                                           = 7;
+  string  Phone                                           = 8;
+  string  Gender                                          = 9;
+  string  Avatar                                          = 10;
+  string  Status                                          = 11;
+  string  IdcardNum                                       = 12;
+  string  IdcardImageBack                                 = 13;
+  string  IdcardImageFront                                = 14;
+  string  IdcardIssueDate                                 = 15;
+  string  IdcardIssuePlaceName                            = 16;
+  string  IdcardIssuePlaceCode                            = 17;
+  string  DateOfBirth                                     = 18;
+  string  ShowroomId                                      = 19;
+  string  Password                                        = 20;
+}
+message NotifyRequest {
+  string Header = 1;
+  string Body = 2;
+  string UserId = 3;
+  string Type = 4;
+  string MetaData = 5;
+}
+message NotifyReply {
+  string status = 1;
+}
+message MyRMReply {
+  repeated string Id                                        = 1;
+}
+message AccessTokenReReply {
+  string	AccessToken     					                        = 1;
+  string	RefreshToken     					                        = 2;
+  string  IdToken                                           =3;
+  string  Expires                                           =4;
+}
+message AuthRequest {
+  string	Phone_Num     					                          = 1;
+  string	Password     					                            = 2;
+}
+message UserProfileReply {
+  string  Id                                                = 1;
+  string  FullName                                          = 2;
+  string  UserName                                          = 3;
+  string  TaxCode                                           = 4;
+  string  BankAccount                                       = 5;
+  string  BankCode                                          = 6;
+  string  Phone                                             = 7;
+  string  Email                                             = 8;
+  string  Gender                                            = 9;
+  string  Avatar                                            = 10;
+  string  Status                                            = 11;
+  string  IdcardNum                                         = 12;
+  string  ShowroomId                                        = 13;
+  string  IdcardIssueDate                                   = 14;
+  string  IdcardIssuePlaceName                              = 15;
+  string  IdcardIssuePlaceCode                              = 16;
+  string  DateOfBirth                                       = 17;
+  string  VibStaffId                                        = 18;
+  int32   TimeAttach                                        = 19;
+}
+message TokenRequest {
+  string	Token     					                              = 1;
+}
+message UserIdReply {
+  string	UserId     					                              = 1;
+}
+
+service LoanService {
+  rpc GetLoanInfoDetailById(GetByIdRequest) returns (LoanDetailInfoReply) {}
+  rpc GetRecentUserShowroom(GetByIdRequest) returns (RecentUserShowroomReply) {}
+}
+message RecentUserShowroomReply {
+  repeated string Id                                        = 1;
+}
+message LoanDetailInfoReply {
+  string	Id                                        =  1;
+  string	ProductCodeMss                            =  2;
+  string	LoanPurpose                               =  3;
+  string	ClientName                                =  4;
+  string	ClientType                                =  5;
+  string	IdcardNum                                 =  6;
+  string	IdcardType                                =  7;
+  string	IdcardImageBack                           =  8;
+  string	IdcardImageFront                          =  9;
+  string	IdcardIssueDate                           =  10;
+  string	IdcardIssuePlaceName                      =  11;
+  string	IdcardIssuePlaceCode                      =  12;
+  string	DateOfBirth                               =  13;
+  string	EmailAddress                              =  14;
+  string	MobileNo                                  =  15;
+  string	TotalIncome                               =  16;
+  string	TotalDebt                                 =  17;
+  string	AddressType                               =  18;
+  string	StateCode                                 =  19;
+  string	DistrictCode                              =  20;
+  string	WardCode                                  =  21;
+  string	Address                                   =  22;
+  string	AddressDetail                             =  23;
+  string	LoanProduct                               =  24;
+  string	BorrowerCapital                           =  25;
+  string	LoanTenor                                 =  26;
+  string	LoanAmt                                   =  27;
+  string	Interest                                  =  28;
+  string	VehicleId                                 =  29;
+  string	LoanPackageId                             =  30;
+  string	Reference1RelateType                      =  31;
+  string	Reference1ClientName                      =  32;
+  string	Reference1GlobalId                        =  33;
+  string	Reference1GlobalIdType                    =  34;
+  string	Reference1DateOfBirth                     =  35;
+  string	Reference2RelateType                      =  36;
+  string	Reference2ClientName                      =  37;
+  string	Reference2GlobalId                        =  38;
+  string	Reference2GlobalIdType                    =  39;
+  string	Reference2DateOfBirth                     =  40;
+  string	AgentAgentNo                              =  41;
+  string	AgentAssignTo                             =  42;
+  string	AgentId                                   =  43;
+  string	AgentName                                 =  44;
+  string	AgentPhone                                =  45;
+  string	AgentEmail                                =  46;
+  string	ShowroomId                                =  47;
+  string	AgentShowroomAddress	                    =  48;
+  string	Status              	                    =  49;
+  string	LendingCode         	                    =  50;
+  google.protobuf.Timestamp		TimeCreated         	=  51;
+  google.protobuf.Timestamp		TimeTodo            	=  52;
+  google.protobuf.Timestamp		TimeOvertime        	=  53;
+  google.protobuf.Timestamp		TimeReturned        	=  54;
+  google.protobuf.Timestamp		TimeProcessing      	=  55;
+  google.protobuf.Timestamp		TimeSubmitted       	=  56;
+  google.protobuf.Timestamp		TimeDocUpdating     	=  57;
+  google.protobuf.Timestamp		TimeCancelled       	=  58;
+  google.protobuf.Timestamp		TimeApproved        	=  59;
+  google.protobuf.Timestamp	CreateAt            	  =  60;
+  google.protobuf.Timestamp	UpdateAt            	  =  61;
+}
+
+// -------------- EKYC Service -----------------
+service EKYCService {
+  rpc GetCardInfoByCardId(GetByIdRequest) returns (CardInfoReply) {}
+  rpc CheckUserBlacklist(BlacklistInfoRequest) returns (BlacklistInfoReply) {}
+  rpc GetAPImUrlByImageId(GetByIdRequest) returns (APImUrlReply) {}
+}
+message APImUrlReply {
+  string	APImImageId     					           = 1;
+}
+message BlacklistInfoRequest {
+  string	Name     					                  = 1;
+  string	DayOfBirth                          = 2;
+  string	IdCardNumber    				            = 3;
+}
+message BlacklistInfoReply {
+  bool 	IsBlackList     					            = 1;
+  string Id      					                    = 2;
+}
+
+message CardInfoReply {
+  string                          Id              = 1;
+  string                          ImageId         = 2;
+  string                          BucketName      = 3;
+  string                          IdNumber        = 4;
+  string                          FullName        = 5;
+  string                          LastName        = 6;
+  string                          MiddleName      = 7;
+  string                          FirstName       = 8;
+  string                          CardType        = 9;
+  string                          DateOfBirth     = 10;
+  string                          Gender          = 11;
+  AddressReply                    NativePlace     = 12;
+  string                          Address         = 13;
+  string                          ExpiryDate      = 14;
+  AddressReply                    Province        = 15;
+  AddressReply                    DistrictPlace   = 16;
+  AddressReply                    WardPlace       = 17;
+  string                          Street          = 18;
+  google.protobuf.Timestamp	      CreateAt        = 19;
+  google.protobuf.Timestamp	      UpdateAt        = 20;
+}
+
+message AddressReply {
+  string	Id     					                          = 1;
+  string	Name                                      = 2;
+  string	Code    				                          = 3;
+}
+
+
+

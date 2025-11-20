@@ -5,9 +5,9 @@ import (
 
 	"google.golang.org/grpc"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
-	grpctransport "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/grpc"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/grpc/_grpc_test/pb"
+	"github.com/ThomasVNN/be-base/endpoint"
+	grpctransport "github.com/ThomasVNN/be-base/transport/grpc"
+	"github.com/ThomasVNN/be-base/transport/grpc/_grpc_test/pb"
 )
 
 type clientBinding struct {

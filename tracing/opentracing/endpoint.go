@@ -6,7 +6,7 @@ import (
 	"github.com/opentracing/opentracing-go"
 	otext "github.com/opentracing/opentracing-go/ext"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
+	"github.com/ThomasVNN/be-base/endpoint"
 )
 
 // TraceServer returns a Middleware that wraps the `next` Endpoint in an

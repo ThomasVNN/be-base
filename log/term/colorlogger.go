@@ -6,7 +6,7 @@ import (
 	"io"
 	"sync"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
+	"github.com/ThomasVNN/be-base/log"
 )
 
 // Color represents an ANSI color. The zero value is Default.

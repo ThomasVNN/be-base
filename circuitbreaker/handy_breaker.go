@@ -6,7 +6,7 @@ import (
 
 	"github.com/streadway/handy/breaker"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
+	"github.com/ThomasVNN/be-base/endpoint"
 )
 
 // HandyBreaker returns an endpoint.Middleware that implements the circuit

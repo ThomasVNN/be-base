@@ -5,7 +5,7 @@ import (
 
 	"github.com/performancecopilot/speed"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics/teststat"
+	"github.com/ThomasVNN/be-base/metrics/teststat"
 )
 
 func TestCounter(t *testing.T) {

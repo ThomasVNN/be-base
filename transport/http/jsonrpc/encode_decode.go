@@ -3,7 +3,7 @@ package jsonrpc
 import (
 	"encoding/json"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
+	"github.com/ThomasVNN/be-base/endpoint"
 
 	"context"
 )

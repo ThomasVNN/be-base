@@ -13,7 +13,7 @@ Using gRPC and go-base together is very simple.
 First, define your service using protobuf3. This is explained
 [in gRPC documentation](http://www.grpc.io/docs/#defining-a-service).
 See
-[add.proto](https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/blob/ec8b02591ee873433565a1ae9d317353412d1d27/examples/addsvc/pb/add.proto)
+[add.proto](https://github.com/ThomasVNN/be-base/blob/ec8b02591ee873433565a1ae9d317353412d1d27/examples/addsvc/pb/add.proto)
 for an example. Make sure the proto definition matches your service's go-base
 (interface) definition.
 
@@ -43,12 +43,12 @@ protoc add.proto --go_out=plugins=grpc:.
 Finally, write a tiny binding from your service definition to the gRPC
 definition. It's a simple conversion from one domain to another.
 See
-[grpc_binding.go](https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/blob/ec8b02591ee873433565a1ae9d317353412d1d27/examples/addsvc/grpc_binding.go)
+[grpc_binding.go](https://github.com/ThomasVNN/be-base/blob/ec8b02591ee873433565a1ae9d317353412d1d27/examples/addsvc/grpc_binding.go)
 for an example.
 
 That's it!
 The gRPC binding can be bound to a listener and serve normal gRPC requests.
 And within your service, you can use standard go-base components and idioms.
-See [addsvc](https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/tree/master/examples/addsvc) for
+See [addsvc](https://github.com/ThomasVNN/be-base/tree/master/examples/addsvc) for
 a complete working example with gRPC support. And remember: go-base services
 can support multiple transports simultaneously.

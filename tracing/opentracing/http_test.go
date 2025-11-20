@@ -10,8 +10,8 @@ import (
 	"github.com/opentracing/opentracing-go/ext"
 	"github.com/opentracing/opentracing-go/mocktracer"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
-	kitot "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/tracing/opentracing"
+	"github.com/ThomasVNN/be-base/log"
+	kitot "github.com/ThomasVNN/be-base/tracing/opentracing"
 )
 
 func TestTraceHTTPRequestRoundtrip(t *testing.T) {

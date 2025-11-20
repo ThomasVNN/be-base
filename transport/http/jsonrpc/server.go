@@ -7,8 +7,8 @@ import (
 	"io"
 	"net/http"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
-	gotransport "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/http"
+	"github.com/ThomasVNN/be-base/log"
+	gotransport "github.com/ThomasVNN/be-base/transport/http"
 )
 
 type requestIDKeyType struct{}

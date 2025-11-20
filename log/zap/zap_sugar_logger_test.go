@@ -2,7 +2,7 @@ package zap_test
 
 import (
 	"encoding/json"
-	kitzap "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log/zap"
+	kitzap "github.com/ThomasVNN/be-base/log/zap"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"strings"

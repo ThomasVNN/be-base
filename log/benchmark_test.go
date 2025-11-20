@@ -3,7 +3,7 @@ package log_test
 import (
 	"testing"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
+	"github.com/ThomasVNN/be-base/log"
 )
 
 func benchmarkRunner(b *testing.B, logger log.Logger, f func(log.Logger)) {

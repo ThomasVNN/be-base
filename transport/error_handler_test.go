@@ -5,8 +5,8 @@ import (
 	"errors"
 	"testing"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport"
+	"github.com/ThomasVNN/be-base/log"
+	"github.com/ThomasVNN/be-base/transport"
 )
 
 func TestLogErrorHandler(t *testing.T) {

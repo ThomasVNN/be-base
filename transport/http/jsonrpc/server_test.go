@@ -12,8 +12,8 @@ import (
 	"testing"
 	"time"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/http/jsonrpc"
+	"github.com/ThomasVNN/be-base/endpoint"
+	"github.com/ThomasVNN/be-base/transport/http/jsonrpc"
 )
 
 func addBody() io.Reader {

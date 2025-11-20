@@ -1,6 +1,5 @@
-// +build !windows
-// +build !plan9
-// +build !nacl
+//go:build !windows && !plan9 && !nacl
+// +build !windows,!plan9,!nacl
 
 package syslog_test
 
@@ -9,9 +8,9 @@ import (
 
 	gosyslog "log/syslog"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log/level"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log/syslog"
+	"github.com/ThomasVNN/be-base/log"
+	"github.com/ThomasVNN/be-base/log/level"
+	"github.com/ThomasVNN/be-base/log/syslog"
 )
 
 func ExampleNewSyslogLogger_defaultPrioritySelector() {

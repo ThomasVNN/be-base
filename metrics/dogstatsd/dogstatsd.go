@@ -20,12 +20,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/log"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics/generic"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics/internal/lv"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/metrics/internal/ratemap"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/util/conn"
+	"github.com/ThomasVNN/be-base/log"
+	"github.com/ThomasVNN/be-base/metrics"
+	"github.com/ThomasVNN/be-base/metrics/generic"
+	"github.com/ThomasVNN/be-base/metrics/internal/lv"
+	"github.com/ThomasVNN/be-base/metrics/internal/ratemap"
+	"github.com/ThomasVNN/be-base/util/conn"
 )
 
 // Dogstatsd receives metrics observations and forwards them to a DogStatsD

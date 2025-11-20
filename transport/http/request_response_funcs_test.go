@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	gotransport "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/http"
+	gotransport "github.com/ThomasVNN/be-base/transport/http"
 )
 
 func TestSetHeader(t *testing.T) {

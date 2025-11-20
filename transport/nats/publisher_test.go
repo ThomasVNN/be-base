@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	natstransport "git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/transport/nats"
+	natstransport "github.com/ThomasVNN/be-base/transport/nats"
 	"github.com/nats-io/nats.go"
 )
 

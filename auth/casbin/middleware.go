@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
+	"github.com/ThomasVNN/be-base/endpoint"
 	stdcasbin "github.com/casbin/casbin/v2"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base/endpoint"
 )
 
 type contextKey string
