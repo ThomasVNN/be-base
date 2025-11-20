@@ -1,4 +1,4 @@
-module git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/be-base
+module github.com/ThomasVNN/be-base
 
 go 1.16
 
