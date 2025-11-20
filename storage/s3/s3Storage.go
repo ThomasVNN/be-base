@@ -2,7 +2,7 @@ package s3
 
 import (
 	"bytes"
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/vib-base/storage/local"
+	"github.com/ThomasVNN/be-base/storage/local"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	awssession "github.com/aws/aws-sdk-go/aws/session"
@@ -12,33 +12,34 @@ import (
 	logg "log"
 	"net/http"
 )
-func UploadAvatarToS3(fileName ,bucket,acl string,files io.Reader) error {
+
+func UploadAvatarToS3(fileName, bucket, acl string, files io.Reader) error {
 	awsss, err := createAWSSession()
 	if err != nil {
 		return err
 	}
 	data, err := ioutil.ReadAll(files)
 	if err != nil {
-		return  err
+		return err
 	}
 	_, err = s3.New(awsss).PutObject(&s3.PutObjectInput{
-		Bucket:               aws.String(bucket),
-		Key:                  aws.String(fileName),
-		ACL:                  aws.String(acl),
-		Body:                 bytes.NewReader(data),
-		ContentLength:        aws.Int64(int64(len(data))),
-		ContentType:          aws.String(http.DetectContentType(data)),
-		ContentDisposition:   aws.String("attachment"),
+		Bucket:             aws.String(bucket),
+		Key:                aws.String(fileName),
+		ACL:                aws.String(acl),
+		Body:               bytes.NewReader(data),
+		ContentLength:      aws.Int64(int64(len(data))),
+		ContentType:        aws.String(http.DetectContentType(data)),
+		ContentDisposition: aws.String("attachment"),
 	})
 	if err != nil {
-		return  err
+		return err
 	}
 	return nil
 }
-func UploadToS3(fileName, bucket string,files io.Reader) error {
+func UploadToS3(fileName, bucket string, files io.Reader) error {
 	awsss, err := createAWSSession()
-	logg.Print("\nAddFileToS3:",fileName)
-	logg.Print("\nbucket:",bucket)
+	logg.Print("\nAddFileToS3:", fileName)
+	logg.Print("\nbucket:", bucket)
 
 	if err != nil {
 		return err
@@ -58,14 +59,14 @@ func UploadToS3(fileName, bucket string,files io.Reader) error {
 		ServerSideEncryption: aws.String("AES256"),
 	})
 	if err != nil {
-		return  err
+		return err
 	}
 	return nil
 }
 func createAWSSession() (*awssession.Session, error) {
 	if local.Getenv("ENVIRONMENT") != "dev" {
 		conf := aws.Config{
-			Region:      aws.String(local.Getenv("AWS_REGION")),
+			Region: aws.String(local.Getenv("AWS_REGION")),
 		}
 		return awssession.NewSession(&conf)
 	}

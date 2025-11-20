@@ -1,8 +1,7 @@
 package dynamodb
 
-
 import (
-	"git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/vib-base/storage/local"
+	"github.com/ThomasVNN/be-base/storage/local"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
